@@ -62,6 +62,8 @@ index="main" source="splunk_practice_login_logs.csv"
 **Result:** 120 events.
 
 This search helped me understand how indexes and sources work together to locate specific data in Splunk.
+<!-- 2. Successful login events -->
+<img src="Screenshots%20and%20Logs%20documents/2Successful%20logged%20in%20users.PNG" alt="Successful Login Events" width="850">
 
 ### 2. Investigating Successful Logins
 
@@ -75,6 +77,8 @@ index="main" source="splunk_practice_login_logs.csv" status="success"
 **Result:** 66 successful login events.
 
 I used the `table` command to organise the results into selected columns, making the information easier to read and analyse.
+<!-- 2. Successful login events -->
+<img src="Screenshots%20and%20Logs%20documents/2Successful%20logged%20in%20users.PNG" alt="Successful Login Events" width="850">
 
 ### 3. Investigating Failed Logins
 
@@ -88,6 +92,9 @@ index="main" source="splunk_practice_login_logs.csv" status="failure"
 **Result:** 54 failed login events.
 
 This exercise showed me how Splunk can help identify unsuccessful login activity, which may be useful when investigating authentication problems or potential security concerns.
+<!-- 3. Failed login events -->
+<img src="Screenshots%20and%20Logs%20documents/3Failed%20users%20login%20status.PNG" alt="Failed Login Events" width="850">
+
 
 ### 4. Searching with Wildcards and Removing Duplicates
 
@@ -100,7 +107,8 @@ index="main" source="splunk_practice_login_logs.csv" user="t*"
 ```
 
 **Result:**
-
+<!-- 4. Unique usernames -->
+<img src="Screenshots%20and%20Logs%20documents/4usernames%20starting%20with%20t%20without%20duplicates.PNG" alt="Unique Usernames Starting With T" width="850">
 - thabo
 - tumelo
 
@@ -118,6 +126,8 @@ After learning how to search and filter events, I explored commands that help su
 index="main" source="splunk_practice_login_logs.csv"
 | top user
 ```
+<!-- 5. Top users -->
+<img src="Screenshots%20and%20Logs%20documents/5Top%20user.PNG" alt="Top Users" width="850">
 
 I used the `top` command to identify usernames appearing most frequently in the login events.
 
@@ -131,7 +141,8 @@ This exercise helped me understand that `top` calculates the frequency and perce
 index="main" source="splunk_practice_login_logs.csv"
 | rare user
 ```
-
+<!-- 6. Rare users -->
+<img src="Screenshots%20and%20Logs%20documents/6rare%20user.PNG" alt="Rare Users" width="850">
 I used the `rare` command to identify usernames appearing least frequently.
 
 **Key finding:** Anele, Nomsa, and Sipho each appeared in 13 events.
@@ -150,6 +161,8 @@ index="main" source="splunk_practice_login_logs.csv"
 This search grouped the login events according to their status.
 
 **Results:**
+<!-- 7. Count by status -->
+<img src="Screenshots%20and%20Logs%20documents/7Count%20by%20status.PNG" alt="Count by Status" width="850">
 
 | Login Status | Number of Events |
 |---|---:|
@@ -166,10 +179,12 @@ index="main" source="splunk_practice_login_logs.csv"
 | stats count by src_ip
 | sort - count
 ```
-
+<!-- 8. Count and sort by IP -->
+<img src="Screenshots%20and%20Logs%20documents/8Count%20and%20sort%20by%20IP%20address.PNG" alt="Count and Sort by IP Address" width="850">
 I used the `stats` command to count events associated with each IP address and the `sort` command to arrange the results from highest to lowest.
 
 **Key finding:** The IP address `203.0.113.30` appeared most frequently, with 29 events.
+
 
 I learned that multiple events associated with one IP address do not necessarily represent different users because several login attempts or usernames may share the same IP address.
 
